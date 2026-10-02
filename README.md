@@ -1,10 +1,10 @@
-# Feature Engineering & Preprocessing Pipeline
+# Credit Card Preprocessing Pipeline
 
 ## Project Overview
 
-This project demonstrates a robust and reusable machine learning preprocessing pipeline using Scikit-Learn.
+A reusable and leak-free machine learning preprocessing pipeline developed using Scikit-Learn.
 
-The project uses the Default of Credit Card Clients dataset from the UCI Machine Learning Repository.
+The project demonstrates data preprocessing, feature engineering, model training, correlation analysis, and feature importance analysis using a structured machine learning workflow.
 
 ## Objectives
 
@@ -12,23 +12,21 @@ The project uses the Default of Credit Card Clients dataset from the UCI Machine
 - Scale numerical features
 - Encode categorical features
 - Prevent data leakage
+- Transform features using ColumnTransformer
+- Train a Random Forest classifier
 - Perform correlation analysis
-- Perform feature importance analysis
-- Build a reusable Scikit-Learn pipeline
+- Analyze feature importance
+- Build a reusable preprocessing pipeline
 
 ## Dataset
 
-Dataset:
-Default of Credit Card Clients
+This project uses the Default of Credit Card Clients dataset.
 
-Source:
-UCI Machine Learning Repository
+Dataset Source:
 
 https://archive.ics.uci.edu/dataset/350/default
 
-The dataset contains information about credit card clients and their payment behavior.
-
-## Technologies
+## Technologies Used
 
 - Python
 - Pandas
@@ -40,47 +38,66 @@ The dataset contains information about credit card clients and their payment beh
 
 ## Machine Learning Workflow
 
-Dataset
-→ Train/Test Split
-→ Numerical Preprocessing
-→ Categorical Preprocessing
-→ ColumnTransformer
-→ Random Forest
-→ Evaluation
-→ Feature Importance
+Dataset  
+↓  
+Train-Test Split  
+↓  
+Missing Value Imputation  
+↓  
+Numerical Scaling  
+↓  
+Categorical Encoding  
+↓  
+ColumnTransformer  
+↓  
+Random Forest  
+↓  
+Model Evaluation  
+↓  
+Correlation Analysis  
+↓  
+Feature Importance
 
 ## Preprocessing
 
 ### Numerical Features
 
-- Median imputation
-- Standard scaling
+- Missing values are handled using median imputation.
+- Numerical features are scaled using StandardScaler.
 
 ### Categorical Features
 
-- Most frequent imputation
-- One-hot encoding
+- Missing values are handled using the most frequent value.
+- Categorical features are converted using One-Hot Encoding.
 
-## Feature Analysis
+## Data Leakage Prevention
 
-Correlation analysis and Random Forest feature importance were performed to understand the contribution of different features.
+The dataset is divided into training and testing sets before fitting preprocessing transformations. This helps prevent information from the test dataset from being used during training.
+
+## Results
+
+The original training dataset contained:
+
+- 24,000 rows
+- 24 features
+
+After preprocessing, the training data contained:
+
+- 24,000 rows
+- 34 transformed features
+
+The increase in features is due to One-Hot Encoding of categorical variables.
 
 ## Project Structure
 
+```text
 Credit-Card-Preprocessing-Pipeline/
-
+│
 ├── data/
-
-│   └── default of credit card clients.xls
-
+│
 ├── notebooks/
-
 │   └── feature_engineering_pipeline.ipynb
-
+│
 ├── README.md
-
-└── requirements.txt
-
-## Author
-
-Vinothini V
+├── requirements.txt
+└── .gitignore
